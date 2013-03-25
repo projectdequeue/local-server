@@ -1,0 +1,48 @@
+html
+{
+	background: #FFFFFF url("../images/wood_pattern.png") repeat center center fixed;
+}
+
+#page
+{
+	z-index: 1;
+	width: 960px;
+	min-height: 500px;
+	border-style: none;
+	border-color: #000000;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFFFFF url("../images/wood_pattern.png") repeat left top;
+}
+
+#page_position_content
+{
+	margin-bottom: 334px;
+}
+
+#u218-4
+{
+	z-index: 3;
+	width: 604px;
+	min-height: 59px;
+	margin-left: 178px;
+}
+
+#u209
+{
+	z-index: 2;
+	width: 200px;
+	margin-left: 334px;
+	margin-top: 14px;
+}
+
+body
+{
+	padding-bottom: 36px;
+}
+
+#page .verticalspacer
+{
+	clear: both;
+}
+

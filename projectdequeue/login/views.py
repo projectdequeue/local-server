@@ -9,9 +9,9 @@ def userlogin(request):
         if request.user.is_authenticated():
             return HttpResponseRedirect('/')
         elif 'e' in request.GET:
-            return render_to_response('login.html',{'error':'1'},context_instance=RequestContext(request))
+            return render_to_response('index.html',{'error':'1'}, context_instance=RequestContext(request))
         else:
-            return render_to_response('login.html',{},context_instance=RequestContext(request))
+            return render_to_response('index.html',{}, context_instance=RequestContext(request))
     else:
         user=authenticate(username=request.POST['uname'],password=request.POST['passwd'])
         if user is not None and user.is_active:
@@ -27,7 +27,7 @@ def home(request):
     if 'message' in request.GET:
         ret={'message':request.GET['message']}
     ret['c']=user.objects.get(user=request.user)
-    return render_to_response('home.html',ret,context_instance=RequestContext(request))
+    return render_to_response('home.html',ret, context_instance=RequestContext(request))
 
 def userLogout(request):
     logout(request)

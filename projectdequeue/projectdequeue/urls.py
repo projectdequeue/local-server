@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'projectdequeue.views.home', name='home'),
     url(r'^$', 'login.views.userlogin'),
     url(r'^welcome/$', 'login.views.welcome'),
+	url(r'view_film/$', 'film.views.view_film'),
     
     # url(r'^projectdequeue/', include('projectdequeue.foo.urls')),
 

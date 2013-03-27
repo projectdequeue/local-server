@@ -13,8 +13,9 @@
 	{% if film_list %}
 		{% for film in film_list %}
 		<tr>
-		<td><a href="{{film.film_id}}"><img src="/film_images/{{film.film_image}}" width="100" height="100" /></a></td>
-		
+		<a href="{{film.film_id}}">
+		<td><img src="/film_images/{{film.film_image}}" width="100" height="100" /></td>
+		</a>
 		<td><font>{{ film.film_name }}<font></td>
 		</tr>			
 		{% endfor %}

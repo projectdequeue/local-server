@@ -35,6 +35,6 @@ def userLogout(request):
 
 def welcome(request):
 	if request.user.is_authenticated():
-          return render_to_response('welcome.html')
+          return HttpResponseRedirect('/view_film')
 	else:
             return HttpResponseRedirect('/?e=1')

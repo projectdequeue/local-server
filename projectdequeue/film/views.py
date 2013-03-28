@@ -15,13 +15,11 @@ curr_time=now.time()
 
 
 def view_film(request):
-	#film_list=Film.objects.filter(ticket_charge="100"),	
 	return render_to_response('view_film.html',{"film_list": Film.objects.filter (show_timing__gte=curr_time) })
-	#return render(request,'customer_page.html',{"film_list":Film.objects.all()})
-	#return HttpResponse(show_datetime)
-
-def buy_ticket(request):
-	num=request.POST['film_id']	
-	return HttpResponse(num)
+	
+def selected_film(request):
+	num=request.GET.get('filmid','')
+	return render_to_response('selected_film.html',{"selected_film": Film.objects.filter(film_id__exact=num) })	
+	
 
 	

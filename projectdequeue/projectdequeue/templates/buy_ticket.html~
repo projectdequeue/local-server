@@ -9,6 +9,7 @@
 	<tr>	
 	{% if selected_film %}
 		{% for film in selected_film %}
+			<a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=sumod" download="filename.jpg"><img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=sumod"></a>
 			<tr>
 				<td><img src="/film_images/{{film.film_image}}" width="200" height="200" /></a></td>
 			</tr>
@@ -25,14 +26,12 @@
 				<td><font>{{ film.show_timing }}<font></td>
 				<td><font>{{ film.hall_id }}<font></td>
 			</tr>
-
-			<form action="/buyticket?filmid={{film.film_id}}" method="post">{% csrf_token %}
-			<tr>
-				<td><center>Number Of Tickets</center></td>
-				<td><input name="number of tickets" type="text" id="number_of_tickets"></td>
+			<td><font><strong>Amount Payable :  {{amount}}</strong></font></td>
+			<td><font><strong></strong><font></td>
 			</tr>
+			<form action="/getticket?amount={{amount}}" method="post">{% csrf_token %}
 			<tr>
-				<td><input type="submit" name="buyticket" value="BUY TICKETS"></a></td>
+				<td><input type="submit" name="makepayment" value="MAKE PAYMENT"></a></td>
 			</tr>	
 			</form>
 				

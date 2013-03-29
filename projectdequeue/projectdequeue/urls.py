@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
    	
 	url(r'^selectedfilm','film.views.selected_film'),
+	url(r'^buyticket','hall.views.buy_ticket'),
+	url(r'^getticket','film.views.get_ticket'),
 	
 )
 

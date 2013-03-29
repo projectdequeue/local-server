@@ -5,7 +5,7 @@
 </br></br>
 
 
-<table width="500" height="100" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#CCCCCC">
+<table width="600" height="100" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#CCCCCC">
 	<tr>	
 	{% if selected_film %}
 		{% for film in selected_film %}
@@ -24,12 +24,23 @@
 				<td><font>{{ film.ticket_charge }}<font></td>
 				<td><font>{{ film.show_timing }}<font></td>
 				<td><font>{{ film.hall_id }}<font></td>
+			</tr>
+
+			<form action="/buyticket?filmid={{film.film_id}}" method="post">{% csrf_token %}
+			<tr>
+				<td><center>Number Of Tickets</center></td>
+				<td><input name="number_of_tickets" type="text" id="number_of_tickets"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="buyticket" value="BUY TICKETS"></a></td>
 			</tr>	
+			</form>
+				
+
 		{% endfor %}
 	{% endif %}
 	</tr>
-	
-	   
+
+		   
 </table>
-</form>
 </html>

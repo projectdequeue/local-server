@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class Film(models.Model):
 	nowshowing='nowshowing'
@@ -10,7 +11,7 @@ class Film(models.Model):
 		
 	film_id=models.IntegerField()
 	film_name=models.CharField(max_length=100)
-	film_image = models.ImageField('Film Image', upload_to='/static/')
+	film_image = models.ImageField('Film Image', upload_to='.')
 	release_date=models.DateField()
 	show_timing=models.TimeField()
 	ticket_charge=models.IntegerField()
@@ -19,4 +20,4 @@ class Film(models.Model):
 
 	def __unicode__(self):
 		return self.film_name
-	
+admin.site.register(Film)

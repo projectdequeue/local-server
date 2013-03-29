@@ -14,12 +14,14 @@ urlpatterns = patterns('',
     
 
     url(r'^$', 'login.views.userlogin'),
+	url(r'^logout$', 'login.views.userlogout'),
     url(r'^welcome/$', 'login.views.welcome'),
 	url(r'^view_film$', 'film.views.view_film'),
     url(r'^admin/', include(admin.site.urls)),
    	
 	url(r'^selectedfilm','film.views.selected_film'),
 	url(r'^buyticket','hall.views.buy_ticket'),
+	url(r'^getticket','film.views.get_ticket'),
 	
 )
 

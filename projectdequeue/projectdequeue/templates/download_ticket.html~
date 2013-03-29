@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+		<table align="center" width="200">
+			<font size="5" face="verdana" color="RED"><strong>GET YOUR TICKET HERE!!!!</strong></font>
+			<img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{user}}{{date}}{{amount}}"></a>
+			<a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=sumod" download="{{filmid}}-{{user}}-{{date}}-{{amount}}.jpg"><img src="/film_images/download_button.jpg" width="300" height="70" /></a>
+		</table>
+	
+</body>
+{% endblock %}
+

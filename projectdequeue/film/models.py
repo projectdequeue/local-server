@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class Film(models.Model):
 	nowshowing='nowshowing'
@@ -19,4 +20,4 @@ class Film(models.Model):
 
 	def __unicode__(self):
 		return self.film_name
-	
+

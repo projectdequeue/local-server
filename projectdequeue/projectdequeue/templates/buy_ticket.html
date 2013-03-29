@@ -1,45 +1,42 @@
-<html>
 
-<center><font allign="centre" size="10" face="verdana" color="green">DEQUEUE</font></center></br> 
-<hr  width="50%" size="12" color="black"></br></br>
-</br></br>
+{% extends "base.html" %}
 
+{% block content %}
 
-<table width="600" height="100" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#CCCCCC">
-	<tr>	
+<body>
 	{% if selected_film %}
-		{% for film in selected_film %}
-			<a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=sumod" download="filename.jpg"><img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=sumod"></a>
-			<tr>
-				<td><img src="/film_images/{{film.film_image}}" width="200" height="200" /></a></td>
-			</tr>
-		
-			<tr>		
-				<td><font><strong><center>Film</center></strong></font></td>
-				<td><font><strong>Ticket Charge</strong></font></td>
-				<td><font><strong>Show Timing</strong></font></td>
-				<td><font><strong>Hall</strong></font></td>
-			</tr>			
-			<tr>		
-				<td><font><center>{{ film.film_name }}</center><font></td>
-				<td><font>{{ film.ticket_charge }}<font></td>
-				<td><font>{{ film.show_timing }}<font></td>
-				<td><font>{{ film.hall_id }}<font></td>
-			</tr>
-			<td><font><strong>Amount Payable :  {{amount}}</strong></font></td>
-			<td><font><strong></strong><font></td>
-			</tr>
-			<form action="/getticket?amount={{amount}}" method="post">{% csrf_token %}
+	{% for film in selected_film %}
+	<img src="/film_images/{{film.film_image}}" width="200" height="200" />
+	<table width="300%" height="200" align="left">
+		<col width="50">
+		<col width="100">
+		<col width="100">
+		<col width="50">
+		<tr height="50">		
+			<th><font allign="centre" size="5" face="verdana" color="RED"><strong>Film</strong></th></font>
+			<th><font allign="centre" size="5" face="verdana" color="RED"><strong>Ticket Charge</strong></font></th>
+			<th><font allign="centre" size="5" face="verdana" color="RED"><strong>Show Timing</strong></font></th>
+			<th><font allign="centre" size="5" face="verdana" color="RED"><strong>Hall</strong></font></th>
+		</tr>		
+		<tr>		
+			<td><font allign="centre" size="5" face="verdana" color="BLACK">{{ film.film_name }}</font></td>
+			<td><font allign="centre" size="5" face="verdana" color="BLACK">{{ film.ticket_charge }}</font></td>
+			<td><font allign="centre" size="5" face="verdana" color="BLACK">{{ film.show_timing }}</font></td>
+			<td><font allign="centre" size="5" face="verdana" color="BLACK">{{ film.hall_id }}</font></td>
+		</tr>
+	
+		<tr>
+		<td><font allign="centre" size="4" face="verdana" color="RED"><strong>Amount Payable :  {{amount}}</strong></font></td>
+		</tr>
+		<form action="/getticket?amount={{amount}}&filmid={{film.film_id}}" method="post">{% csrf_token %}
 			<tr>
 				<td><input type="submit" name="makepayment" value="MAKE PAYMENT"></a></td>
 			</tr>	
-			</form>
-				
+		</form>
+	</table>
 
-		{% endfor %}
+	{% endfor %}
 	{% endif %}
-	</tr>
+</body>
+{% endblock %}
 
-		   
-</table>
-</html>

@@ -124,8 +124,8 @@ INSTALLED_APPS = (
     'login',
 	'film',
 	'hall',
-	'qrcode',
-    # Uncomment the next line to enable the admin:
+	#'ticket',
+	# Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

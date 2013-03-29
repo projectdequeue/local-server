@@ -4,6 +4,11 @@ from django.template import RequestContext
 from film.models import Film
 from hall.models import Hall
 
+from django.views.decorators.cache import cache_control
+from django.contrib.auth.decorators import login_required,user_passes_test
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def buy_ticket(request):
 	filmid=request.GET.get('filmid','')
 	tickets=long(request.POST['number_of_tickets'])	
@@ -21,3 +26,6 @@ def buy_ticket(request):
 		film_hall.total_seats_allocated +=tickets
 		film_hall.save()
 		return render_to_response('buy_ticket.html',{'amount':amount_payable,"selected_film": Film.objects.filter(film_id__exact=filmid) },context_instance=RequestContext(request))	
+
+	else:
+		return HttpResponse("Seats Not Available")

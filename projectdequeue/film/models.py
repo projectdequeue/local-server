@@ -10,12 +10,14 @@ class Film(models.Model):
 		
 	film_id=models.IntegerField()
 	film_name=models.CharField(max_length=100)
-	image = models.ImageField('Label', upload_to='film_images/')
+	film_image = models.ImageField('Label', upload_to='img')
 	release_date=models.DateField()
 	show_timing=models.TimeField()
 	ticket_charge=models.IntegerField()
 	film_status=models.CharField(max_length=50, choices=film_status_choices, default=nowshowing)
 	hall_id=models.IntegerField()
+	slug=models.SlugField(unique=True)
+	description=models.TextField()
 
 	def __unicode__(self):
 		return self.film_name

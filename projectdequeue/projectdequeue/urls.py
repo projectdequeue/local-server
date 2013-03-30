@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     url(r'^$', 'login.views.userlogin'),
     url(r'^welcome/$', 'login.views.welcome'),
 	url(r'view_film/$', 'film.views.view_film'),
-    
+    	url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+	{'document_root': ''}
+  ),
+	url(r'^welcome/view_film/(?P<filmslug>.*)/$', 'film.views.specific_film'),
     # url(r'^projectdequeue/', include('projectdequeue.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

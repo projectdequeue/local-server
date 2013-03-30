@@ -3,6 +3,6 @@ from film.models import Film
 
 class FilmAdmin(admin.ModelAdmin):
 	list_display=('film_id','film_name','release_date','show_timing','ticket_charge','hall_id')
-	prepopulated_fields={'slug':('film_id',)}
+	prepopulated_fields={'slug':('film_id')}
 
 admin.site.register(Film,FilmAdmin)

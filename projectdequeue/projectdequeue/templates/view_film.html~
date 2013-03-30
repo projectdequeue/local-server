@@ -1,0 +1,48 @@
+<html>
+
+<center><font allign="centre" size="10" face="verdana" color="green">DEQUEUE</font></center></br> 
+<hr  width="50%" size="12" color="black"></br></br>
+</br></br>
+
+
+<table width="350" height="100" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#CCCCCC">
+	<tr>
+	<center><font allign="centre" size="5" face="verdana" color="RED">NOW SHOWING<font></center></br>
+	</tr>
+
+        <tr>
+	<td><font><strong><center>Film ID</center></strong></font></td>
+	<td><font><strong>Film</strong></font></td>
+	<td><font><strong>Ticket Charge</strong></font></td>
+	</tr>
+	
+	{% if film_list %}
+		{% for film in film_list %}
+		<tr>		
+			<td><font><center>{{ film.film_id }}</center></font></td>
+			<td><font>{{ film.film_name }}<font></td>
+			<td><font>{{ film.ticket_charge }}<font></td>
+		</tr>			
+		{% endfor %}
+	{% else %}
+		<tr><center><font allign="centre" size="5" face="verdana" color="RED">CURRENTLY NO SHOWS<font></center></br></tr>
+	{% endif %}
+
+	   
+<form action="/buy_ticket/" method="post">{% csrf_token %}
+
+<tr>
+<td><center>FILM ID</center></td>
+<td><input name="film_id" type="text" id="film_id"></td>
+</tr>
+
+<tr>
+<td><center>Number Of Tickets</center></td>
+<td><input name="number of tickets" type="text" id="number_of_tickets"></td>
+</tr>
+
+<td align="center"><input type="submit" name="buy_ticket" value="BUY TICKETS"></td>
+</form>
+</table>
+</form>
+</html>
